@@ -1,6 +1,6 @@
 CXX=g++
 CXXFLAGS=-Wall -Werror -Wextra -pedantic -ggdb -O0 -std=c++17 -Iproduct
-SOURCES=$(wildcard *.cpp)
+SOURCES=$(wildcard src/*.cpp)
 TARGET =Main
 
 .PHONY: all clean test
