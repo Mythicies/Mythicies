@@ -1,0 +1,20 @@
+#ifndef ENTITY_HPP
+#define ENTITY_HPP
+
+#include <string>
+using namespace std;
+
+class Entity
+{
+protected:
+    bool isAlive;
+    string type;
+
+public:
+    Entity(bool isAlive, string type);
+    string getType();
+    bool getIsAlive();
+    ~Entity();
+};
+
+#endif
