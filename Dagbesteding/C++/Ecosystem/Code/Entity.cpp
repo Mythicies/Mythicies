@@ -1,8 +1,9 @@
 #include "Entity.hpp"
 
-Entity::Entity(bool isAlive, string type, int currentTick)
+Entity::Entity(string type, int currentTick)
 {
-    this->isAlive = isAlive;
+    // this->isAlive = isAlive;
+    isAlive = true;
     this->type = type;
     this->currentTick = currentTick;
 }

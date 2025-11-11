@@ -9,9 +9,10 @@ class Animal : public Entity
 private:
     AnimalTraits animalTraits;
     string type;
+    int currentTick;
 
 public:
-    Animal(string type, AnimalTraits animalTraits);
+    Animal(string type, AnimalTraits animalTraits, int currentTick);
     void Move();
     void Eat();
     void Rest();

@@ -7,12 +7,12 @@ using namespace std;
 class Entity
 {
 protected:
-    bool isAlive;
+    bool isAlive = true;
     string type;
     int currentTick;
 
 public:
-    Entity(bool isAlive, string type, int currentTick);
+    Entity(string type, int currentTick);
     string getType();
     bool getIsAlive();
     ~Entity();

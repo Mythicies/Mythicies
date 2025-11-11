@@ -14,6 +14,7 @@ private:
     float size;
     PlantTraits plantTraits;
     string type;
+    bool isAlive;
     int lifespan;
     int age;
     float nextBirthdaySize;
@@ -27,8 +28,10 @@ public:
     void birthday();
     int getAge();
     int getMaxSize();
+    int getCurrentTick();
+    void setCurrentTick(int currentTick);
     float getNextBirthdaySize();
-    void setNextBirthdaySize(float);
+    // void setNextBirthdaySize(float);
     void setAge(int age);
     int getLifespan();
     ~Plant();

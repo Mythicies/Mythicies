@@ -1,9 +1,10 @@
 #include "Animal.hpp"
 
-Animal::Animal(string type, AnimalTraits animalTraits) : Entity(isAlive, type)
+Animal::Animal(string type, AnimalTraits animalTraits, int currentTick) : Entity(type, currentTick)
 {
     // this->type = species;
     this->animalTraits = animalTraits;
+    this->currentTick = currentTick;
 }
 
 void Animal::Move()

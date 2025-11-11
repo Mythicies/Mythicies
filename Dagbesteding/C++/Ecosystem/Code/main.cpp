@@ -25,16 +25,17 @@ int main()
 {
     std::signal(SIGINT, signalHandler);
     const float deltaTime = 1.0f;
-
+    int CurrentYear = 0;
     int tick = 0;
     const int yearLength = 12;
     int newYearLength = 0;
+
+    std::vector<Plant> plants = {
+        Plant("Berk", PlantsDB.at("Berk"), tick),
+        Plant("Wildflowers", PlantsDB.at("Wildflowers"), tick)};
     while (running)
     {
-        int currentTick = tick;
-        std::vector<Plant> plants = {
-            Plant("Berk", PlantsDB.at("Berk"), currentTick),
-            Plant("Wildflowers", PlantsDB.at("Wildflowers"), currentTick)};
+        // int currentTick = tick;
 
         for (auto &plant : plants)
         {
@@ -44,10 +45,19 @@ int main()
                 std::cout << plant.getType() << " size: " << plant.getSize() << std::endl;
                 if (tick == newYearLength)
                 {
-                    plant.birthday();
-                    cout << plant.getAge() << endl;
+                    // plant.birthday();
+                    // cout << plant.getAge() << endl;
+                    CurrentYear++;
                     newYearLength += yearLength;
-                    cout << newYearLength << endl;
+                    cout << "Year: " << CurrentYear << endl;
+                    // cout << newYearLength << endl;
+                }
+
+                if (tick - plant.getCurrentTick() >= 12)
+                {
+                    plant.birthday();
+                    plant.setCurrentTick(tick);
+                    std::cout << "🎂 " << plant.getType() << " turned " << plant.getAge() << "!\n";
                 }
                 if (plant.getAge() > plant.getLifespan())
                 {
@@ -55,6 +65,7 @@ int main()
                 }
             }
         }
+        // cout << "Tick: " << endl;
         tick++;
         plants.erase(
             std::remove_if(plants.begin(), plants.end(),
