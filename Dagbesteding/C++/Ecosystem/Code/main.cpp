@@ -26,36 +26,36 @@ int main()
     std::signal(SIGINT, signalHandler);
     const float deltaTime = 1.0f;
 
-    std::vector<Plant> plants = {
-        Plant("Berk", PlantsDB.at("Berk")),
-        Plant("Wildflowers", PlantsDB.at("Wildflowers"))};
+    int tick = 0;
+    const int yearLength = 12;
+    int newYearLength = 0;
     while (running)
     {
+        int currentTick = tick;
+        std::vector<Plant> plants = {
+            Plant("Berk", PlantsDB.at("Berk"), currentTick),
+            Plant("Wildflowers", PlantsDB.at("Wildflowers"), currentTick)};
+
         for (auto &plant : plants)
         {
             if (plant.getIsAlive())
             {
                 plant.grow(deltaTime);
                 std::cout << plant.getType() << " size: " << plant.getSize() << std::endl;
-
-                if (plant.getSize() >= plant.getNextBirthdaySize())
+                if (tick == newYearLength)
                 {
                     plant.birthday();
-                    std::cout << "Age: " << plant.getAge() << std::endl;
-
-                    if (plant.getAge() < plant.getLifespan())
-                    {
-                        float newSize = plant.getNextBirthdaySize() + plant.getMaxSize() / plant.getLifespan();
-                        plant.setNextBirthdaySize(newSize);
-                    }
-                    else
-                    {
-                        plant.die();
-                    }
+                    cout << plant.getAge() << endl;
+                    newYearLength += yearLength;
+                    cout << newYearLength << endl;
+                }
+                if (plant.getAge() > plant.getLifespan())
+                {
+                    plant.die();
                 }
             }
-            // Remove dead plants
         }
+        tick++;
         plants.erase(
             std::remove_if(plants.begin(), plants.end(),
                            [](Plant &p)

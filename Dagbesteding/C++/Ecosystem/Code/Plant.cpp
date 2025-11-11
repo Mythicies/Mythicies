@@ -1,7 +1,7 @@
 #include "Plant.hpp"
 #include "PlantTraits.hpp"
 
-Plant::Plant(string type, PlantTraits plantTraits) : Entity(isAlive, type)
+Plant::Plant(string type, PlantTraits plantTraits, int currentTick) : Entity(isAlive, type, currentTick)
 {
     this->plantTraits = plantTraits;
     this->growthRate = plantTraits.growthRate;

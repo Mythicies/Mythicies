@@ -17,9 +17,10 @@ private:
     int lifespan;
     int age;
     float nextBirthdaySize;
+    int currentTick;
 
 public:
-    Plant(string type, PlantTraits plantTraits);
+    Plant(string type, PlantTraits plantTraits, int currentTick);
     void grow(float);
     void die();
     float getSize();
