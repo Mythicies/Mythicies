@@ -12,6 +12,7 @@
 #include <csignal>
 #include <vector>
 #include <algorithm>
+#include <random>
 
 std::atomic<bool> running(true);
 
@@ -31,12 +32,19 @@ int main()
     int newYearLength = 0;
 
     std::vector<Plant> plants = {
-        Plant("Berk", PlantsDB.at("Berk"), tick),
-        Plant("Wildflowers", PlantsDB.at("Wildflowers"), tick)};
+        Plant("Birch", PlantsDB.at("Birch"), tick),
+        Plant("Wildflowers", PlantsDB.at("Wildflowers"), tick + 5),
+        Plant("Grass", PlantsDB.at("Grass"), tick + 15)};
+
+    vector<Animal> animals = {
+        Animal("Lion", AnimalsDB.at("Lion"), tick + 2),
+        Animal("Lion2", AnimalsDB.at("Lion"), tick + 5)};
     while (running)
     {
-        // int currentTick = tick;
-
+        for (auto &animal : animals)
+        {
+            cout << animal.getType() << ", Lifespan: " << animal.getLifespan() << endl;
+        }
         for (auto &plant : plants)
         {
             if (plant.getIsAlive())
@@ -53,10 +61,10 @@ int main()
                     // cout << newYearLength << endl;
                 }
 
-                if (tick - plant.getCurrentTick() >= 12)
+                if (tick - plant.getBirthTick() >= 12)
                 {
                     plant.birthday();
-                    plant.setCurrentTick(tick);
+                    plant.setBirthTick(tick);
                     std::cout << "🎂 " << plant.getType() << " turned " << plant.getAge() << "!\n";
                 }
                 if (plant.getAge() > plant.getLifespan())

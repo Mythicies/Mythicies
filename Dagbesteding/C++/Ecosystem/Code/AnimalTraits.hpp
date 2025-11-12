@@ -11,6 +11,6 @@ struct AnimalTraits
     float age;
 };
 
-extern const std::unordered_map<std::string, AnimalTraits> AnimalsDB;
+extern std::unordered_map<std::string, AnimalTraits> AnimalsDB;
 
 #endif

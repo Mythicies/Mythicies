@@ -1,10 +1,11 @@
 #include "Animal.hpp"
 
-Animal::Animal(string type, AnimalTraits animalTraits, int currentTick) : Entity(type, currentTick)
+Animal::Animal(string type, AnimalTraits animalTraits, int birthTick) : Entity(type, birthTick)
 {
-    // this->type = species;
+    this->type = type;
     this->animalTraits = animalTraits;
-    this->currentTick = currentTick;
+    this->birthTick = birthTick;
+    this->lifespan = animalTraits.lifespan;
 }
 
 void Animal::Move()
@@ -13,6 +14,11 @@ void Animal::Move()
 
 void Animal::Eat()
 {
+}
+
+float Animal::getLifespan()
+{
+    return lifespan;
 }
 
 void Animal::Rest()

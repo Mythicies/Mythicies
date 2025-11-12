@@ -1,7 +1,7 @@
 #include "Plant.hpp"
 #include "PlantTraits.hpp"
 
-Plant::Plant(string type, PlantTraits plantTraits, int currentTick) : Entity(type, currentTick)
+Plant::Plant(string type, PlantTraits plantTraits, int birthTick) : Entity(type, birthTick)
 {
     this->plantTraits = plantTraits;
     this->growthRate = plantTraits.growthRate;
@@ -10,18 +10,18 @@ Plant::Plant(string type, PlantTraits plantTraits, int currentTick) : Entity(typ
     this->isAlive = plantTraits.isAlive;
     this->lifespan = plantTraits.lifespan;
     this->age = plantTraits.age;
-    // nextBirthdaySize = maxSize / lifespan;
-    this->currentTick = currentTick;
+    this->type = type;
+    this->birthTick = birthTick;
 }
 
-int Plant::getCurrentTick()
+int Plant::getBirthTick()
 {
-    return currentTick;
+    return birthTick;
 }
 
-void Plant::setCurrentTick(int currentTick)
+void Plant::setBirthTick(int currentTick)
 {
-    this->currentTick = currentTick;
+    this->birthTick = currentTick;
 }
 
 void Plant::grow(float time)
@@ -32,19 +32,9 @@ void Plant::grow(float time)
         size = maxSize;
 }
 
-// void Plant::setNextBirthdaySize(float birthdaySize)
-// {
-//     this->nextBirthdaySize = birthdaySize;
-// }
-
 void Plant::setAge(int age)
 {
     this->age = age;
-}
-
-float Plant::getNextBirthdaySize()
-{
-    return nextBirthdaySize;
 }
 
 int Plant::getAge()

@@ -9,10 +9,10 @@ class Entity
 protected:
     bool isAlive = true;
     string type;
-    int currentTick;
+    int birthTick;
 
 public:
-    Entity(string type, int currentTick);
+    Entity(string type, int birthTick);
     string getType();
     bool getIsAlive();
     ~Entity();

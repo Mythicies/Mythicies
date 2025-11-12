@@ -1,11 +1,11 @@
 #include "Entity.hpp"
 
-Entity::Entity(string type, int currentTick)
+Entity::Entity(string type, int birthTick)
 {
     // this->isAlive = isAlive;
     isAlive = true;
     this->type = type;
-    this->currentTick = currentTick;
+    this->birthTick = birthTick;
 }
 
 string Entity::getType()

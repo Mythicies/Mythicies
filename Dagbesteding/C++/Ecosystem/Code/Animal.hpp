@@ -8,14 +8,16 @@ class Animal : public Entity
 {
 private:
     AnimalTraits animalTraits;
-    string type;
-    int currentTick;
+    float growthRate;
+    int maxSize;
+    float lifespan;
 
 public:
     Animal(string type, AnimalTraits animalTraits, int currentTick);
     void Move();
     void Eat();
     void Rest();
+    float getLifespan();
     ~Animal();
 };
 

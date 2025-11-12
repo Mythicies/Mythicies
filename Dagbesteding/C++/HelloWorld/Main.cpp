@@ -1,5 +1,6 @@
 #include <iostream>
 #include <iterator>
+#include <memory>
 
 using namespace std;
 int FindValue(int array[], size_t size, int value);
@@ -8,13 +9,33 @@ void swap(int numbers[], int i, int j);
 
 int main()
 {
-    int numbers[] = {10, 20, 30};
-    int *ptr = &numbers[size(numbers) - 1];
-    while (ptr >= numbers)
+    int capacity = 5;
+    int *numbers = new int[capacity];
+    int entries = 0;
+    while (true)
     {
-        cout << *ptr << endl;
-        ptr--;
+        cout << "Number: ";
+        cin >> numbers[entries];
+        if (cin.fail())
+            break;
+        entries++;
+        if (entries == capacity)
+        {
+            capacity *= 2;
+            int *temp = new int[capacity];
+            for (int i = 0; i < entries; i++)
+            {
+                temp[i] = numbers[i];
+            }
+            delete[] numbers;
+            numbers = temp;
+        }
     }
+    for (int i = 0; i < entries; i++)
+    {
+        cout << numbers[i] << endl;
+    }
+    delete[] numbers;
 }
 
 int FindValueLinear(int array[], size_t size, int value)

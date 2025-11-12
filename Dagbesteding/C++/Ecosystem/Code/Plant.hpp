@@ -13,25 +13,19 @@ private:
     bool edible;
     float size;
     PlantTraits plantTraits;
-    string type;
-    bool isAlive;
     int lifespan;
     int age;
-    float nextBirthdaySize;
-    int currentTick;
 
 public:
-    Plant(string type, PlantTraits plantTraits, int currentTick);
+    Plant(string type, PlantTraits plantTraits, int birthTick);
     void grow(float);
     void die();
     float getSize();
     void birthday();
     int getAge();
     int getMaxSize();
-    int getCurrentTick();
-    void setCurrentTick(int currentTick);
-    float getNextBirthdaySize();
-    // void setNextBirthdaySize(float);
+    int getBirthTick();
+    void setBirthTick(int currentTick);
     void setAge(int age);
     int getLifespan();
     ~Plant();
