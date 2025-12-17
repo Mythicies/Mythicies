@@ -9,7 +9,7 @@ float randomLifespan(int min, int max)
 {
     static std::mt19937 rng(std::random_device{}());
     std::uniform_int_distribution<int> dist(min, max);
-    return static_cast<float>(dist(rng));
+    return static_cast<float>(dist(rng)); // static van RNG weghalen en ipv random device de huidige tijd als seed gebruiken. Time since epoch
 }
 
 unordered_map<std::string, AnimalTraits> AnimalsDB = {

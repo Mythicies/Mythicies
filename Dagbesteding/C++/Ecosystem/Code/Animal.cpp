@@ -1,11 +1,11 @@
 #include "Animal.hpp"
 
-Animal::Animal(string type, AnimalTraits animalTraits, int birthTick) : Entity(type, birthTick)
+Animal::Animal(string type, AnimalTraits animalTraits, int birthTick) : Entity(type, birthTick, maxSize, size, lifespan)
 {
     this->type = type;
     this->animalTraits = animalTraits;
     this->birthTick = birthTick;
-    this->lifespan = animalTraits.lifespan;
+    // this->lifespan = animalTraits.lifespan;
 }
 
 void Animal::Move()
