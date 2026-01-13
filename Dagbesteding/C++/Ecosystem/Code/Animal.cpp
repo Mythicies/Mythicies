@@ -1,6 +1,6 @@
 #include "Animal.hpp"
 
-Animal::Animal(string type, AnimalTraits animalTraits, int birthTick) : Entity(type, birthTick, maxSize, size, lifespan)
+Animal::Animal(string type, AnimalTraits animalTraits, int birthTick, float maxSize, float size) : Entity(type, birthTick, maxSize, size, animalTraits.lifespan)
 {
     this->type = type;
     this->animalTraits = animalTraits;

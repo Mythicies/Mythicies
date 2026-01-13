@@ -13,7 +13,7 @@ private:
     float lifespan;
 
 public:
-    Animal(string type, AnimalTraits animalTraits, int currentTick);
+    Animal(string type, AnimalTraits animalTraits, int currentTick, float maxSize, float size);
     void Move();
     void Eat();
     void Rest();

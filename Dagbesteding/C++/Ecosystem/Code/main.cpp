@@ -36,9 +36,9 @@ int main()
         Plant("Wildflowers", PlantsDB.at("Wildflowers"), tick + 5),
         Plant("Grass", PlantsDB.at("Grass"), tick + 15)};
 
-    vector<Animal> animals = {
-        Animal("Lion", AnimalsDB.at("Lion"), tick + 2),
-        Animal("Lion2", AnimalsDB.at("Lion"), tick + 5)};
+    std::vector<Animal> animals = {
+        Animal("Lion", AnimalsDB.at("Lion"), tick + 2, 80, 0),
+        Animal("Lion2", AnimalsDB.at("Lion"), tick + 5, 80, 0)};
     while (running)
     {
         for (auto &animal : animals)
@@ -83,4 +83,8 @@ int main()
         std::cout << "------------------------" << std::endl;
         std::this_thread::sleep_for(std::chrono::milliseconds(500));
     }
+}
+
+Animal produce_animals()
+{
 }
