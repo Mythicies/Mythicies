@@ -22,6 +22,6 @@ using namespace std;
 //     return dist(rng);
 // }
 
-unordered_map<std::string, AnimalTraits> AnimalsDB = {
-    {"Lion", {15, 12.5f, randomLifespan(8, 16), 0}},
-    {"Deer", {10, 14.0f, randomLifespan(2, 5), 0}}};
+// unordered_map<std::string, AnimalTraits> AnimalsDB = {
+//     {"Lion", {15, 12.5f, randomLifespan(8, 16), 0}},
+//     {"Deer", {10, 14.0f, randomLifespan(2, 5), 0}}};
